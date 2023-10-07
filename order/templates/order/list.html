@@ -6,25 +6,25 @@
 			        <thead class="text-center">
 			            <tr>
 			                <th scope="col">#</th>
-			                <th scope="col">Order ID</th>
-			                <th scope="col">Payment</th>
-			                <th scope="col">Qty</th>
-			                <th scope="col">Status</th>
-			                <th scope="col">Date</th>
+			                <th scope="col">Mã đơn hàng</th>
+			                <th scope="col">Chi trả</th>
+			                <th scope="col">Số lượng</th>
+			                <th scope="col">Trạng thái đơn hàng</th>
+			                <th scope="col">Ngày đặt hàng</th>
 			            </tr>
 			        </thead>
 			        <tbody class="text-center">
 			            {% for morder in myorder %}
 			            <tr>
 			                <td>{{ forloop.counter }}</td>
-			                <td><a href="{% url 'order:order_details' id=morder.id %}">#2018{{ morder.id }}</a></td>
-			                <td>{{ morder.payable }} $.</td>
+			                <td><a href="{% url 'order:order_details' id=morder.id %}">#2023{{ morder.id }}</a></td>
+			                <td>{{ morder.payable }} đ.</td>
 			                <td>{{ morder.totalbook }}</td>
 			                <td class="text-center">
 			                	{% if morder.paid == True %}
-			                	<p class="status3">Confirmed</p>
+			                	<p class="status3">Đã xác nhận</p>
 			                	{% else %}
-			                	<p class="status1">Processing</p>
+			                	<p class="status1">Đang xử lý</p>
 			                	{% endif %}
 			                </td>
 			                <td>{{ morder.created }}</td>
@@ -38,10 +38,10 @@
 			    <ul class="pagination">
 				{% if myorder.has_previous %}
 					<li class="page-item">
-						<a class="page-link" href="?page=1">First</a>
+						<a class="page-link" href="?page=1">Trang đầu</a>
 					</li>								
 					<li class="page-item">
-						<a class="page-link" href="?page={{ myorder.previous_page_number }}">Previous</a>
+						<a class="page-link" href="?page={{ myorder.previous_page_number }}">Trang trước</a>
 					</li>
 				{% endif %}
 				{% for ord in myorder.paginator.page_range %}
@@ -61,13 +61,13 @@
 				{% endfor %}
 				 {% if myorder.has_next %}
 					<li class="page-item">
-						<a class="page-link" href="?page={{ myorder.next_page_number }}">Next</a>
+						<a class="page-link" href="?page={{ myorder.next_page_number }}">Trang tiếp</a>
 					</li>
 					<li class="page-item">
-						<a class="page-link" href="?page={{ myorder.paginator.num_pages }}">Last</a>
+						<a class="page-link" href="?page={{ myorder.paginator.num_pages }}">Trang cuối</a>
 					</li>
 				{% endif %}
 			    </ul>
 			</div>
 
-		{% endblock %}
+		{% endblock %} 

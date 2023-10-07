@@ -29,8 +29,8 @@ def signin(request):
                 login(request, auth)
                 return redirect('store:index')
             else:
-            	messages.error(request, 'username and password doesn\'t match')
-
+            	messages.error(request, 'Tên người dùng hoặc mật khẩu không đúng')
+                
     return render(request, "store/login.html")	
 
 
@@ -73,10 +73,10 @@ def get_book(request, id):
                 form.save()  
                 temp.save()
 
-                messages.success(request, "Review Added Successfully")
+                messages.success(request, "Đánh giá đã được thêm thành công")
                 form = ReviewForm()
         else:
-            messages.error(request, "You need login first.")
+            messages.error(request, "Bạn cần đăng nhập trước.")
     context = {
         "book":book,
         "rbooks": rbooks,

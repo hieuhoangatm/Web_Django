@@ -28,15 +28,17 @@
 					<div style="margin:0 auto;">
 						<ul id="demo3">
 							{% for sld in slide %}
-							<li><img height="100" src="{{ sld.slideimg.url }}"/></li>
+							<li><img height="100" src="https://as2.ftcdn.net/v2/jpg/06/24/82/59/1000_F_624825957_LV48yz36WnsgcUh1ddjaqBpAV5MAqcc3.jpg"/></li>
+							<li><img height="100" src="https://as2.ftcdn.net/v2/jpg/04/52/13/27/1000_F_452132751_1sux6VJmZP1lV1yHKZGzCIEpqjFNpsOn.jpg"/></li>
+							<li><img height="100" src="https://as1.ftcdn.net/v2/jpg/00/61/94/96/1000_F_61949602_65sIxx8kXNeGk2YSYgxp4MInR0TaVfcR.jpg"/></li>
 							{% endfor %}
 						</ul>
 					</div>
 				</div>
 				<div class="col-sm-12">
 					<div class="titleheader">
-						<h3 class="h2header text-center">New Published Book</h3>
-						<a href="#">See All</a>
+						<h3 class="h2header text-center">Sách mới xuất bản</h3>
+						{% comment %} <a href="#">Xem tất cả</a> {% endcomment %}
 					</div>
 					<div class="regulara sliderzx">
 						{% for item in newbooks %}
@@ -50,9 +52,9 @@
 								{{ item.totalrating|averagerating:item.totalreview }}
 								<span class="totalrating">{{ item.totalreview|add:-1 }}</span>
 							</div>
-							<p> {{ item.price }} $.</p>
+							<p> {{ item.price }} đ.</p>
 							<button class="btn btn-warning" id="addTocart" data-book-id="{{ item.id }}">
-									<i class="fa fa-shopping-cart""></i>Add to cart
+									<i class="fa fa-shopping-cart""></i>Thêm vào giỏ
 								</button>
 						</div>
 						{% endfor %}
@@ -61,7 +63,7 @@
 
 				<div class="col-sm-12">
 					<div class="titleheader">
-						<h3 class="h2header text-center">Top Selling Book</h3>
+						<h3 class="h2header text-center">Sách bán chạy</h3>
 					</div>
 					<div class="regulara sliderzx">
 						{% for p in newbooks %}
@@ -75,9 +77,9 @@
 								{{ p.totalrating|averagerating:p.totalreview }}
 								<span class="totalrating">{{ p.totalreview|add:-1 }}</span>
 							</div>
-							<p> ${{ p.price }} $.</p>
+							<p> {{ p.price }} đ.</p>
 							<button class="btn btn-warning" id="addTocart" data-book-id="{{ p.id }}">
-									<i class="fa fa-shopping-cart""></i>Add to cart
+									<i class="fa fa-shopping-cart""></i>Thêm vào giỏ
 								</button>
 						</div>
 						{% endfor %}

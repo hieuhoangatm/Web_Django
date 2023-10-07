@@ -14,7 +14,7 @@ class RegistrationForm(UserCreationForm):
             'email',
             'username',
             'password1',
-            'password2'
+            'password2',
         ]
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
@@ -28,7 +28,7 @@ class RegistrationForm(UserCreationForm):
 
 class ReviewForm(forms.ModelForm):
     review_star = forms.IntegerField(widget=forms.HiddenInput(), initial=1)
-    review_text = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'placeholder': 'Write Your Review'}))
+    review_text = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'placeholder': 'Viết đánh giá của bạn'}))
 
     class Meta:
         model = Review

@@ -16,6 +16,9 @@ from django.contrib.messages import constants as messages
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# settings.py
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'search.apps.SearchConfig',
     'order.apps.OrderConfig',
     'crispy_forms',
+    'bootstrap4',
 ]
 
 
@@ -54,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 ROOT_URLCONF = 'bookstore.urls'
@@ -110,15 +115,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
+         #Kiểm tra xem mật khẩu có giống với các thuộc tính của người dùng (ví dụ: tên người dùng) hay không. Nó giúp tránh tình trạng mật khẩu quá giống với thông tin cá nhân của người dùng.
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        
     },
     {
+        #Kiểm tra độ dài tối thiểu cho mật khẩu. Điều này đảm bảo rằng mật khẩu phải đủ dài để tránh bị đoán đúng dễ dàng.
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
+        # Kiểm tra xem mật khẩu có thuộc danh sách mật khẩu phổ biến hay không. Thường thì danh sách này chứa các mật khẩu dễ đoán và thường bị tấn công.
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
-    {
+    {   
+        #Kiểm tra xem mật khẩu có chứa ít nhất một ký tự số hay không. Điều này giúp tăng tính đa dạng của mật khẩu.
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
@@ -127,7 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'vi'
 
 TIME_ZONE = 'UTC'
 

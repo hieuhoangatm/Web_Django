@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import HttpResponse, render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -32,7 +33,7 @@ def order_create(request):
 				return render(request, 'order/successfull.html', {'order': order})
 
 			else:
-				messages.error(request, "Fill out your information correctly.")
+				messages.error(request, "Vui lòng điền thông tin của bạn một cách chính xác.")
 
 		if len(cart) > 0:
 			return render(request, 'order/order.html', {"form": form})
@@ -67,7 +68,7 @@ class pdf(View):
         try:
             query=get_object_or_404(Order,id=id)
         except:
-            Http404('Content not found')
+            Http404('Không tìm thấy nội dung')
         context={
             "order":query
         }

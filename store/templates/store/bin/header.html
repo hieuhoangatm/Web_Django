@@ -10,7 +10,7 @@
 			<div class="col-sm-5">
 				<form action="{% url 'search:search' %}" method="GET">
 					<div class="input-group search_box">
-						<input type="text" class="form-control" placeholder="Search Book" name="q" value="{{search}}">
+						<input type="text" class="form-control" placeholder="Tìm kiếm" name="q" value="{{search}}">
 						<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 					</div>
 				</form>
@@ -21,20 +21,20 @@
 						{% if request.user.is_authenticated %}
 					    <li class="dropdown profile"><a href="#">{{ request.user.username }}</a>
 					        <ul role="menu" class="sub-menu">
-					            <li><a href="{% url 'order:order_list' %}"><i class="fa fa-shopping-cart"></i> My order</a></li>
-					            <li><a href="{% url 'store:signout' %}"><i class="fa fa-sign-out"></i> Sing Out</a></li>
+					            <li><a href="{% url 'order:order_list' %}"><i class="fa fa-shopping-cart"></i> Đơn hàng của tôi</a></li>
+					            <li><a href="{% url 'store:signout' %}"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 					        </ul> 
 					    </li>
 					    <li class="cart">
-					    	<a href="{% url 'cart:cart_details' %}">Cart <i class="fa fa-angle-left"></i>
+					    	<a href="{% url 'cart:cart_details' %}">Giỏ hàng <i class="fa fa-angle-left"></i>
 					    		<span class="totalcart" id="gettotalcart"> {{ cart|length }} </span> 
 					    		<i class="fa fa-angle-right"></i>
 					    	</a>
 					    </li>
 					    {% else %}
-					    <li class="profile"><a href="{% url 'store:signin' %}">Sign In</a></li>
+					    <li class="profile"><a href="{% url 'store:signin' %}">Đăng nhập</a></li>
 					    <li class="cart">
-					    	<a href="{% url 'cart:cart_details' %}">Cart <i class="fa fa-angle-left"></i>
+					    	<a href="{% url 'cart:cart_details' %}">Giỏ hàng <i class="fa fa-angle-left"></i>
 					    		<span class="totalcart" id="gettotalcart"> {{ cart|length }} </span> 
 					    		<i class="fa fa-angle-right"></i>
 					    	</a>

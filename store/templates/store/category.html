@@ -14,9 +14,9 @@
 							{{ item.totalrating|averagerating:item.totalreview }}
 							<span class="totalrating">{{ item.totalreview|add:-1 }}</span>
 						</div>
-						<p> {{ item.price }} $. </p>
+						<p> {{ item.price }} đ. </p>
 						<button class="btn btn-warning" id="addTocart" data-book-id="{{ item.id }}">
-								<i class="fa fa-shopping-cart""></i>Add to cart
+								<i class="fa fa-shopping-cart""></i>Thêm vào giỏ
 						</button>
 					</div>
 				</div>
@@ -28,10 +28,10 @@
 			    <ul class="pagination">
 				{% if book.has_previous %}
 					<li class="page-item">
-						<a class="page-link" href="?page=1">First</a>
+						<a class="page-link" href="?page=1">Trang đầu</a>
 					</li>								
 					<li class="page-item">
-						<a class="page-link" href="?page={{ book.previous_page_number }}">Previous</a>
+						<a class="page-link" href="?page={{ book.previous_page_number }}">Trang trước</a>
 					</li>
 				{% endif %}
 				{% for ord in book.paginator.page_range %}
@@ -51,16 +51,16 @@
 				{% endfor %}
 				 {% if book.has_next %}
 					<li class="page-item">
-						<a class="page-link" href="?page={{ book.next_page_number }}">Next</a>
+						<a class="page-link" href="?page={{ book.next_page_number }}">Trang Tiếp</a>
 					</li>
 					<li class="page-item">
-						<a class="page-link" href="?page={{ book.paginator.num_pages }}">Last</a>
+						<a class="page-link" href="?page={{ book.paginator.num_pages }}">Trang Cuối</a>
 					</li>
 				{% endif %}
 			    </ul>
 			</div>
 			{% else %}
-			<h3 class="text-center mt-5">There are no books Found.</h3>
+			<h3 class="text-center mt-5">Không sách nào được tìm thấy.</h3>
 			{% endif %}	
 
 {% endblock %}

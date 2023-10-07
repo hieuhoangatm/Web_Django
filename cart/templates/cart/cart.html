@@ -8,10 +8,10 @@
 					        <thead class="text-center">
 					            <tr>
 					                <th scope="col">#</th>
-					                <th scope="col" style="width: 250px">Name</th>
-					                <th scope="col" style="width: 250">Qty</th>
-					                <th scope="col">Price</th>
-					                <th scope="col">Action</th>
+					                <th scope="col" style="width: 250px">Tên sách</th>
+					                <th scope="col" style="width: 250">Số lượng</th>
+					                <th scope="col">Giá</th>
+					                <th scope="col">Xóa</th>
 					            </tr>
 					        </thead>
 					        <tbody class="text-center">
@@ -21,7 +21,7 @@
 					                <td class="cart_coverpage"><a href=""><img src="{{ book.coverpage.url }}"></a></td>
 					                <td>{{ book.name }}</td>
 					                <td class="cart_quantity"><input type="text" name="qty" value="{{ item.quantity }}" onchange ="updateCartItem(this,{{ book.id }})" style="width: 30px"></td>
-					                <td id="{{ book.id }}">{{ item.total_price }} $.</td>
+					                <td id="{{ book.id }}">{{ item.total_price }} đ.</td>
 					                <td><a href="{% url 'cart:cart_remove' bookid=book.id %}" class="btn btn-danger"><i class="fa fa-trash-o"></i></a></td>
 					            </tr>
 					            {% endwith %}
@@ -29,8 +29,8 @@
 					        </tbody>
 					    </table>
 						<div class="continue_or_next text-center">
-							<a href="{% url 'store:index' %}" class="btn _to_shope">Continue to Shope</a>
-							<a href="{% url 'order:order_create' %}" class="btn _to_continue">Proceed to Checkout</a>
+							<a href="{% url 'store:index' %}" class="btn _to_shope">Tiếp tục mua sắm</a>
+							<a href="{% url 'order:order_create' %}" class="btn _to_continue">Kiểm tra</a>
 						</div>
 					</div>
 				</div>

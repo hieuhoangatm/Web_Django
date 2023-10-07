@@ -33,6 +33,7 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+	
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)

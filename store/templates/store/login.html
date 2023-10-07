@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Book Store Sign In</title>
+	<title>Đăng nhập Book Store</title>
 	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -20,22 +20,22 @@
 				    {% endfor %}
 				</div>
 				{% endif %}
-				<h3> Sign In</h3>	
+				<h3> Đăng nhập</h3>	
 				<form action="" method="POST" class="auth-validate-form">
 					{% csrf_token %}
 					<div class="form-group">
-					   <label>Username</label>
+					   <label>Người dùng</label>
 					   <input type="text" name="user" class="form-control">
 					</div>
 					<div class="form-group">
-					   <label>Password</label>
+					   <label>Mật khẩu</label>
 					   <input type="password" name="pass" class="form-control">
 					</div>
-					<button type="submit" class="btn btn-warning">Login</button>
+					<button type="submit" class="btn btn-warning">Đăng nhập</button>
 				</form>
-				<a href="#">Forgot your password?</a>
-				<div class="a-divider-break"><h5>New to BookStore?</h5></div>
-				<a class="btn btn-default" href="{% url 'store:registration' %}">Create you BookStore account</a>
+				<a href="#">Quên mật khẩu?</a>
+				{% comment %} <div class="a-divider-break"><h5>Đi tới BookStore?</h5></div> {% endcomment %}
+				<a class="btn btn-default" href="{% url 'store:registration' %}">Tạo tài khoản mới</a>
 			</div> 
 		</div>
 	</div>

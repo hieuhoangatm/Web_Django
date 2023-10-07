@@ -152,7 +152,7 @@ function totalCart(){
 		url: "../cart/totalcart",
 		success: function(data){
 			$("#gettotalcart").html(data);
-			console.log(data)
+			console.log(data);
 		}
 	})
 }

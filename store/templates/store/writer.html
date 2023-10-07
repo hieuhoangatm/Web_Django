@@ -23,7 +23,7 @@
 
 				<div class="col-sm-12">
 					<div class="titleheader">
-						<h3 class="h2header text-center">Published Books</h3>
+						<h3 class="h2header text-center">Sách đã xuất bản</h3>
 					</div>
 					<div class="regulara sliderzx">
 						{% for item in book %}
@@ -37,9 +37,9 @@
 								{{ item.totalrating|averagerating:item.totalreview }}
 								<span class="totalrating">{{ item.totalreview|add:-1 }}</span>
 							</div>
-							<p> ${{ item.price }} </p>
+							<p> {{ item.price }} đ.</p>
 							<button class="btn btn-warning" id="addTocart" data-book-id="{{ item.id }}">
-									<i class="fa fa-shopping-cart""></i>Add to cart
+									<i class="fa fa-shopping-cart""></i>Thêm vào giỏ
 								</button>
 
 
